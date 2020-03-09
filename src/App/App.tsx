@@ -1,7 +1,7 @@
 import React from 'react';
-import { Header } from './Header';
-import { Player } from './Player';
-import withRoot from './withRoot';
+import { Header } from '../Header';
+import { Player } from '../Player';
+import withRoot from '../withRoot';
 
 function App() {
   return (

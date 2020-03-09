@@ -1,29 +1,39 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import { Theme } from '@material-ui/core/styles';
+import LiveTvIcon from '@material-ui/icons/LiveTv';
+import { makeStyles, createStyles } from '@material-ui/core/styles';
 
-interface IProps {
-  classes: any;
-}
+const useStyles = makeStyles(() =>
+  createStyles({
+    root: {
+      flexGrow: 1,
+    },
+    grow: {
+      flexGrow: 1,
+      display: 'flex',
+      alignItems: 'center',
+    },
+    icon: {
+      color: 'red',
+      fontSize: 45,
+      paddingLeft: 10,
+    },
+  })
+);
 
-const Header: React.FC<IProps> = ({ classes }) => {
+const Header: React.FC = () => {
+  const classes = useStyles();
   return (
     <div className={classes.root}>
       <AppBar position='static'>
         <Toolbar>
           <div className={classes.grow}>
-            {/* Add some icon here */}
-            <Typography
-              component='h1'
-              variant='h6'
-              color='inherit'
-              noWrap
-            >
+            <Typography component='h1' variant='h6' color='inherit' noWrap>
               Material Player
             </Typography>
+            <LiveTvIcon className={classes.icon} />
           </div>
         </Toolbar>
       </AppBar>
@@ -31,20 +41,4 @@ const Header: React.FC<IProps> = ({ classes }) => {
   );
 };
 
-const styles = (theme: Theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  grow: {
-    flexGrow: 1,
-    display: 'flex',
-    alignItems: 'center',
-  },
-  icon: {
-    marginRight: theme.spacing,
-    color: 'green',
-    fontSize: 45,
-  },
-});
-
-export default withStyles(styles)(Header);
+export default Header;

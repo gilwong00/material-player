@@ -5,10 +5,11 @@ import VideoItem from './VideoItem';
 interface IProps {
   videos: Array<any>;
   setSelectedVideo: Dispatch<SetStateAction<any>>;
+  styles: string;
 }
 
-const VideoList: React.FC<IProps> = ({ videos, setSelectedVideo }) => (
-  <List style={{ paddingTop: 0 }}>
+const VideoList: React.FC<IProps> = ({ videos, setSelectedVideo, styles }) => (
+  <List className={styles}>
     {videos.map(video => (
       <VideoItem
         key={video.etag}
